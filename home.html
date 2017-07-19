@@ -131,7 +131,7 @@ $('#stream_table').on("change", "input[name=RecordCheck]", function () {
             if (this.checked) {
                 //alert("true");//for testing purposes
                 localStorage.setItem("namearray", $(this).parent().next('td').text());
-                localStorage.setItem("entirearray",$(this).closest('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text());
+                localStorage.setItem("entirearray",$(this).closest('tr').next('tr').text()+" "+$(this).closest('tr').next('tr').next('tr').text()+" "+$(this).closest('tr').next('tr').next('tr').next('tr').text()+" "+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').text()+" "+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+" "+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+" "+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text());
             }else{
                 //alert("false");
                 // localStorage.removeItem("namearray");
@@ -145,7 +145,7 @@ $('#stream_table').on("change", "input[name=RecordCheck]", function () {
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_jurisdiction]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("jurisdiction",$(this).closest('tr').text()+'\n');
+                localStorage.setItem("jurisdiction",$(this).closest('tr').text()+' ');
             }else{
                 //alert("false");
                 localStorage.setItem("jurisdiction","");;
@@ -158,7 +158,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_jurisdiction]"
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_actorreg]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("actorreg",$(this).closest('tr').text()+'\n');
+                localStorage.setItem("actorreg",$(this).closest('tr').text()+' ');
             }else{
                 //alert("false");
                 localStorage.setItem("actorreg","");
@@ -171,7 +171,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_actorreg]", fu
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_originalurl]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("originalurl",$(this).closest('tr').text()+'\n');
+                localStorage.setItem("originalurl",$(this).closest('tr').text()+' ');
             }else{
                 //alert("false");
                 localStorage.setItem("originalurl","");
@@ -184,7 +184,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_originalurl]",
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_repealed]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("repealed",$(this).closest('tr').text()+'\n');
+                localStorage.setItem("repealed",$(this).closest('tr').text()+' ');
             }else{
                 //alert("false");
                 localStorage.setItem("repealed","");
@@ -197,7 +197,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_repealed]", fu
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_updatedondate]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("updated_ondate",$(this).closest('tr').text()+'\n');
+                localStorage.setItem("updated_ondate",$(this).closest('tr').text()+' ');
             }else{
                 //alert("false");
                 localStorage.setItem("updated_ondate","");
@@ -210,7 +210,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_updatedondate]
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_codifypublisheddate]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("codifypublishdate",$(this).closest('tr').text()+'\n');
+                localStorage.setItem("codifypublishdate",$(this).closest('tr').text()+' ');
             }else{
                 //alert("false");
                 localStorage.setItem("codifypublishdate","");
@@ -223,7 +223,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_codifypublishe
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_enablingstatute]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("enablingstatute",$(this).closest('tr').text()+'\n');
+                localStorage.setItem("enablingstatute",$(this).closest('tr').text()+' ');
             }else{
                 //alert("false");
                 localStorage.setItem("enablingstatute","");
@@ -270,7 +270,7 @@ return false;
 
                 var namedata=(localStorage.getItem('namearray'));
                 // Queue a command to replace the selected text.
-                range.insertText(namedata+'\n', Word.InsertLocation.replace);
+                range.insertText(namedata+' ', Word.InsertLocation.replace);
 
                 // Synchronize the document state by executing the queued commands,
                 // and return a promise to indicate task completion.
@@ -298,7 +298,7 @@ return false;
                 var namedata=(localStorage.getItem('namearray'));
                 var entiredata=(localStorage.getItem('entirearray'));
                 // Queue a command to replace the selected text.
-                range.insertText(namedata+'\n'+entiredata,Word.InsertLocation.replace);
+                range.insertText(namedata+' '+entiredata,Word.InsertLocation.replace);
                 // Synchronize the document state by executing the queued commands,
                 // and return a promise to indicate task completion.
                 return context.sync().then(function () {
