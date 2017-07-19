@@ -120,11 +120,11 @@ $("#stream_table").on("click","a",function(e) {
   $(document).ready(function(){
 $('#stream_table').on("change", "input[name=RecordCheck]", function () {
             if (this.checked) {
-                alert("true");//for testing purposes
+                //alert("true");//for testing purposes
                 localStorage.setItem("namearray", $(this).parent().next('td').text());
                 localStorage.setItem("entirearray",$(this).closest('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+"\n"+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 // localStorage.removeItem("namearray");
                 // localStorage.removeItem("entirearray");
             }
@@ -135,10 +135,10 @@ $('#stream_table').on("change", "input[name=RecordCheck]", function () {
   $(document).ready(function(){
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_jurisdiction]", function () {
             if (this.checked) {
-                alert("true inner");//for testing purposes
+                //alert("true inner");//for testing purposes
                 localStorage.setItem("jurisdiction",$(this).closest('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 localStorage.removeItem("jurisdiction");
             }
         });
@@ -148,10 +148,10 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_jurisdiction]"
   $(document).ready(function(){
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_actorreg]", function () {
             if (this.checked) {
-                alert("true inner");//for testing purposes
+                //alert("true inner");//for testing purposes
                 localStorage.setItem("actorreg",$(this).closest('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 localStorage.removeItem("actorreg");
             }
         });
@@ -161,10 +161,10 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_actorreg]", fu
   $(document).ready(function(){
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_originalurl]", function () {
             if (this.checked) {
-                alert("true inner");//for testing purposes
+                //alert("true inner");//for testing purposes
                 localStorage.setItem("originalurl",$(this).closest('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 localStorage.removeItem("originalurl");
             }
         });
@@ -174,10 +174,10 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_originalurl]",
   $(document).ready(function(){
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_repealed]", function () {
             if (this.checked) {
-                alert("true inner");//for testing purposes
+                //alert("true inner");//for testing purposes
                 localStorage.setItem("repealed",$(this).closest('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 localStorage.removeItem("repealed");
             }
         });
@@ -187,10 +187,10 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_repealed]", fu
   $(document).ready(function(){
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_updatedondate]", function () {
             if (this.checked) {
-                alert("true inner");//for testing purposes
+                //alert("true inner");//for testing purposes
                 localStorage.setItem("updated_ondate",$(this).closest('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 localStorage.removeItem("updated_ondate");
             }
         });
@@ -200,10 +200,10 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_updatedondate]
   $(document).ready(function(){
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_codifypublisheddate]", function () {
             if (this.checked) {
-                alert("true inner");//for testing purposes
+                //alert("true inner");//for testing purposes
                 localStorage.setItem("codifypublishdate",$(this).closest('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 localStorage.removeItem("codifypublishdate");
             }
         });
@@ -213,10 +213,10 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_codifypublishe
   $(document).ready(function(){
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_enablingstatute]", function () {
             if (this.checked) {
-                alert("true inner");//for testing purposes
+                //alert("true inner");//for testing purposes
                 localStorage.setItem("enablingstatute",$(this).closest('tr').text());
             }else{
-                alert("false");
+                //alert("false");
                 localStorage.removeItem("enablingstatute");
             }
         });
