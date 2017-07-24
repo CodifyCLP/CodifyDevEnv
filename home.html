@@ -41,7 +41,6 @@
                     <h3>Insert Text from Codify Legislative Database</h3>
                     <button id="clear" type="button">Refresh Query</button>
                     <button id="nameonly" type="submit">Only Act/Reg Name with Citation</button>
-                    <button id="entireact">Entire Act/Reg</button>
                     <button id="partsofact">Part of Act/Reg</button>
             </div>
             <h3><div id="supportedVersion"/></h3>
@@ -66,7 +65,7 @@
       <tr class ="parent">
         <td><input type="checkbox" name="RecordCheck"></td>
         <td id="name">{{record.name}}</td>
-        <td><a href="#" id="toggle" onClick="toggle_it('tr1');">+Expand Parts</a></td>
+        <td><a href="#">+Expand Parts</a></td>
       </tr>
       <tr>
         <td></td>
@@ -107,6 +106,8 @@
   </body>
     </html>
 <script type="text/javascript">
+localStorage.setItem("namearray","");
+localStorage.setItem("entirearray","");
 localStorage.setItem("jurisdiction","");
 localStorage.setItem("actorreg","");
 localStorage.setItem("originalurl","");
@@ -131,11 +132,9 @@ $('#stream_table').on("change", "input[name=RecordCheck]", function () {
             if (this.checked) {
                 //alert("true");//for testing purposes
                 localStorage.setItem("namearray", $(this).parent().next('td').text());
-                localStorage.setItem("entirearray",$(this).closest('tr').next('tr').text()+$(this).closest('tr').next('tr').next('tr').text()+$(this).closest('tr').next('tr').next('tr').next('tr').text()+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').text()+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text()+$(this).closest('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').next('tr').text());
             }else{
                 //alert("false");
-                // localStorage.removeItem("namearray");
-                // localStorage.removeItem("entirearray");
+                localStorage.setItem("namearray","");
             }
         });
 });
@@ -145,7 +144,7 @@ $('#stream_table').on("change", "input[name=RecordCheck]", function () {
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_jurisdiction]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("jurisdiction",$(this).closest('tr').text());
+                localStorage.setItem("jurisdiction",$(this).parent().text());
             }else{
                 //alert("false");
                 localStorage.setItem("jurisdiction","");;
@@ -158,7 +157,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_jurisdiction]"
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_actorreg]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("actorreg",$(this).closest('tr').text());
+                localStorage.setItem("actorreg",$(this).parent().text());
             }else{
                 //alert("false");
                 localStorage.setItem("actorreg","");
@@ -171,7 +170,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_actorreg]", fu
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_originalurl]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("originalurl",$(this).closest('tr').text());
+                localStorage.setItem("originalurl",$(this).parent().text());
             }else{
                 //alert("false");
                 localStorage.setItem("originalurl","");
@@ -184,7 +183,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_originalurl]",
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_repealed]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("repealed",$(this).closest('tr').text());
+                localStorage.setItem("repealed",$(this).parent().text());
             }else{
                 //alert("false");
                 localStorage.setItem("repealed","");
@@ -197,7 +196,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_repealed]", fu
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_updatedondate]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("updated_ondate",$(this).closest('tr').text());
+                localStorage.setItem("updated_ondate",$(this).parent().text());
             }else{
                 //alert("false");
                 localStorage.setItem("updated_ondate","");
@@ -210,7 +209,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_updatedondate]
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_codifypublisheddate]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("codifypublishdate",$(this).closest('tr').text());
+                localStorage.setItem("codifypublishdate",$(this).parent().text());
             }else{
                 //alert("false");
                 localStorage.setItem("codifypublishdate","");
@@ -223,7 +222,7 @@ $("#stream_table").on("change", "input[name=RecordCheckinnerparts_codifypublishe
 $("#stream_table").on("change", "input[name=RecordCheckinnerparts_enablingstatute]", function () {
             if (this.checked) {
                 //alert("true inner");//for testing purposes
-                localStorage.setItem("enablingstatute",$(this).closest('tr').text());
+                localStorage.setItem("enablingstatute",$(this).parent().text());
             }else{
                 //alert("false");
                 localStorage.setItem("enablingstatute","");
@@ -285,33 +284,33 @@ return false;
                 }
             });
         }
-          function insertentireact() {
-            Word.run(function (context) {
+        //   function insertentireact() {
+        //     Word.run(function (context) {
 
-                // Create a proxy object for the document.
-                var thisDocument = context.document;
+        //         // Create a proxy object for the document.
+        //         var thisDocument = context.document;
 
-                // Queue a command to get the current selection.
-                // Create a proxy range object for the selection.
-                var range = thisDocument.getSelection();
+        //         // Queue a command to get the current selection.
+        //         // Create a proxy range object for the selection.
+        //         var range = thisDocument.getSelection();
 
-                var namedata=(localStorage.getItem('namearray'));
-                var entiredata=(localStorage.getItem('entirearray'));
-                // Queue a command to replace the selected text.
-                range.insertText(namedata+entiredata,Word.InsertLocation.replace);
-                // Synchronize the document state by executing the queued commands,
-                // and return a promise to indicate task completion.
-                return context.sync().then(function () {
-                    console.log('inserted entire act');
-                });
-            })
-            .catch(function (error) {
-                console.log('Error: ' + JSON.stringify(error));
-                if (error instanceof OfficeExtension.Error) {
-                    console.log('Debug info: ' + JSON.stringify(error.debugInfo));
-                }
-            });
-        }
+        //         var namedata=(localStorage.getItem('namearray'));
+        //         var entiredata=(localStorage.getItem('entirearray'));
+        //         // Queue a command to replace the selected text.
+        //         range.insertText(namedata+entiredata,Word.InsertLocation.replace);
+        //         // Synchronize the document state by executing the queued commands,
+        //         // and return a promise to indicate task completion.
+        //         return context.sync().then(function () {
+        //             console.log('inserted entire act');
+        //         });
+        //     })
+        //     .catch(function (error) {
+        //         console.log('Error: ' + JSON.stringify(error));
+        //         if (error instanceof OfficeExtension.Error) {
+        //             console.log('Debug info: ' + JSON.stringify(error.debugInfo));
+        //         }
+        //     });
+        // }
 
        function insertparts() {
             Word.run(function (context) {
